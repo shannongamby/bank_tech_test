@@ -18,7 +18,11 @@ I want to be able to make a withdrawal
 ```
 As a client
 So that I can see how much money I have
+<<<<<<< HEAD
 I want to be able to print my balance
+=======
+I want to be able to print my bank statement
+>>>>>>> d3e97153ca7f718647c51e2e61ff1d5c62ee49b6
 ```
 
 ## Specification
