@@ -22,7 +22,6 @@ describe Account do
   end
 
   context 'keeping track of transactions' do
-
     context 'when a deposit is made' do
       it 'should store amount deposited' do
         subject.deposit(100)

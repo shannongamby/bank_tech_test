@@ -17,5 +17,4 @@ class Account
     @balance -= amount unless amount > @balance
     @transaction = Transaction.new(0, amount, @balance)
   end
-
 end
