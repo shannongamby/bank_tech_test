@@ -1,9 +1,8 @@
 require 'account'
 
 describe Account do
-
   context 'depositing money' do
-    it 'should add the deposited money to the balance' do
+    it 'should add a specified amount to the balance' do
       subject.deposit(100)
       expect(subject.balance).to eq 100
     end
@@ -15,6 +14,10 @@ describe Account do
       subject.withdraw(100)
       expect(subject.balance).to eq 0
     end
-  end
 
+    it 'should not withdraw an amount if it is larger than the balance' do
+      subject.withdraw(100)
+      expect(subject.balance).to eq 0
+    end
+  end
 end
