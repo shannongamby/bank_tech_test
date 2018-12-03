@@ -10,14 +10,15 @@ describe Statement do
   end
 
   it 'should print a correctly formatted transaction' do
-    expect(subject.print([transaction])).to eq(
-      "Date || Credit || Debit || Balance\n#{Time.now.strftime('%d/%m/%Y')} || 100 || 0 || 100"
-    )
+    expect{ subject.print([transaction]) }.to output(
+      "Date || Credit || Debit || Balance\n#{Time.now.strftime('%d/%m/%Y')} || 100 || 0 || 100\n"
+    ).to_stdout
   end
 
   it 'should print the transactions in reverse chronological order' do
-    expect(subject.print([transaction, transaction_two])).to eq(
-      "Date || Credit || Debit || Balance\n#{Time.now.strftime('%d/%m/%Y')} || 10 || 0 || 110\n#{Time.now.strftime('%d/%m/%Y')} || 100 || 0 || 100"
-    )
+    expect{ subject.print([transaction, transaction_two]) }.to output(
+      "Date || Credit || Debit || Balance\n
+      #{Time.now.strftime('%d/%m/%Y')} || 10 || 0 || 110\n#{Time.now.strftime('%d/%m/%Y')} || 100 || 0 || 100\n"
+    ).to_stdout
   end
 end
