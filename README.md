@@ -1,6 +1,6 @@
 # Bank Tech Test
 [![Build Status](https://travis-ci.com/shannongamby/bank_tech_test.svg?branch=master)](https://travis-ci.com/shannongamby/bank_tech_test)
-[![Coverage Status](https://coveralls.io/repos/github/shannongamby/bank_tech_test/badge.svg?branch=master)](https://coveralls.io/github/shannongamby/bank_tech_test?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/shannongamby/bank_tech_test/badge.svg?branch=master&service=github)](https://coveralls.io/github/shannongamby/bank_tech_test?branch=master&service=github)
 
 When completing this tech test I focussed on implementing the principles of OOD and TDD.
 ## Set Up
