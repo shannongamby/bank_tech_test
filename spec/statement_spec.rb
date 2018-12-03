@@ -2,14 +2,22 @@ require 'statement'
 
 describe Statement do
   let(:transaction) do
-    transaction = double :transaction
-    allow(transaction).to receive(:credit) { 100 }
-    allow(transaction).to receive(:debit) { 0 }
-    allow(transaction).to receive(:balance) { 100 }
-    transaction
+    double(:transaction, credit: 100, debit: 0, balance: 100, date: Time.now.strftime('%d/%m/%Y').to_s)
   end
 
-  it 'should print each transaction' do
-    expect(subject.print([transaction])).to eq "Credit || Debit || Balance\n100 || 0 || 100"
+  let(:transaction_two) do
+    double(:transaction_two, credit: 10, debit: 0, balance: 110, date: Time.now.strftime('%d/%m/%Y').to_s)
+  end
+
+  it 'should print a correctly formatted transaction' do
+    expect(subject.print([transaction])).to eq(
+      "Date || Credit || Debit || Balance\n#{Time.now.strftime('%d/%m/%Y')} || 100 || 0 || 100"
+    )
+  end
+
+  it 'should print the transactions in reverse chronological order' do
+    expect(subject.print([transaction, transaction_two])).to eq(
+      "Date || Credit || Debit || Balance\n#{Time.now.strftime('%d/%m/%Y')} || 10 || 0 || 110\n#{Time.now.strftime('%d/%m/%Y')} || 100 || 0 || 100"
+    )
   end
 end

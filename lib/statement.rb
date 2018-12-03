@@ -1,9 +1,8 @@
 class Statement
-
   def print(transactions)
-    statement = "Credit || Debit || Balance\n"
-    transactions.each do |transaction|
-      statement += "#{transaction.credit} || #{transaction.debit} || #{transaction.balance}"
+    statement = 'Date || Credit || Debit || Balance'
+    transactions.reverse_each do |transaction|
+      statement += "\n#{transaction.date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}"
     end
     statement
   end
