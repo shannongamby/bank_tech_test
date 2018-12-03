@@ -1,4 +1,4 @@
-require_relative './lib/transaction'
+require_relative './transaction'
 
 class Account
   attr_reader :balance, :transaction
@@ -17,4 +17,5 @@ class Account
     @balance -= amount unless amount > @balance
     @transaction = Transaction.new(0, amount, @balance)
   end
+
 end
