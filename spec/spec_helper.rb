@@ -1,4 +1,7 @@
+require 'coveralls'
+Coveralls.wear!
 require 'simplecov'
+require 'simplecov-console'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -15,4 +18,8 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 end
 
+SimpleCov.formatter =
+  SimpleCov::Formatter::MultiFormatter.new([
+                                             SimpleCov::Formatter::Console
+                                           ])
 SimpleCov.start
