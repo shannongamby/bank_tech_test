@@ -18,7 +18,8 @@ I want to be able to make a withdrawal
 ```
 As a client
 So that I can see how much money I have
-I want to be able to print my bank statement
+I want to be able to print my balance
+```
 
 ## Specification
 
