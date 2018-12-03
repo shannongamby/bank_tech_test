@@ -10,6 +10,12 @@ As a client
 So that I can store my money
 I want to be able to make a deposit
 ```
+```
+As a client
+So that I can spend my money
+I want to be able to make a withdrawal
+```
+
 ## Specification
 
 ### Requirements
