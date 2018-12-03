@@ -1,6 +1,7 @@
 require_relative './transaction'
 require_relative './statement'
 
+# This class stores the balance and is responsible for handling deposits and withdrawals
 class Account
   attr_reader :balance, :transactions
 

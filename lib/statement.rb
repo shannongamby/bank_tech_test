@@ -1,3 +1,4 @@
+# This class is responsible for printing bank statements
 class Statement
   def print(transactions)
     puts 'Date || Credit || Debit || Balance'
