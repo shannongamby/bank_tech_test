@@ -25,7 +25,7 @@ So that I can see how much money I have
 I want to be able to print my bank statement
 ```
 ## How to use
-* Open `irb` and load `account.rb` 
+* Open `irb` and run `require './lib/account.rb'` 
 * Then you can interact with the program by following the notes below:
 ```
 account = Account.new
