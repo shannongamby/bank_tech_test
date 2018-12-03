@@ -23,17 +23,36 @@ describe Account do
 
   context 'keeping track of transactions' do
 
-    context 'when deposit is made' do
-      it 'should store amount deposited, amount withdrawn, and current balance' do
+    context 'when a deposit is made' do
+      it 'should store amount deposited' do
         subject.deposit(100)
-        expect(subject.transactions).to eq [100, 0, 100]
+        expect(subject.transaction.credit).to eq 100
+      end
+      it 'should store amount withdrawn' do
+        subject.deposit(100)
+        expect(subject.transaction.debit).to eq 0
+      end
+      it 'should store balance' do
+        subject.deposit(100)
+        expect(subject.transaction.balance).to eq 100
       end
     end
-    context 'when withdrawal is made' do
-      it 'should store amount deposited, amount withdrawn, and current balance' do
+
+    context 'when a withdrawal is made' do
+      before do
         subject.deposit(100)
+      end
+      it 'should store amount deposited' do
         subject.withdraw(100)
-        expect(subject.transactions).to eq [0, 100, 0]
+        expect(subject.transaction.credit).to eq 0
+      end
+      it 'should store amount withdrawn' do
+        subject.withdraw(100)
+        expect(subject.transaction.debit).to eq 100
+      end
+      it 'should store balance' do
+        subject.withdraw(100)
+        expect(subject.transaction.balance).to eq 0
       end
     end
   end

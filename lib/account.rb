@@ -1,18 +1,20 @@
+require_relative './lib/transaction'
+
 class Account
-  attr_reader :balance, :transactions
+  attr_reader :balance, :transaction
 
   def initialize
     @balance = 0
-    @transactions = []
+    @transaction = nil
   end
 
   def deposit(amount)
     @balance += amount
-    @transactions.clear.push(amount, 0, @balance)
+    @transaction = Transaction.new(amount, 0, @balance)
   end
 
   def withdraw(amount)
     @balance -= amount unless amount > @balance
-    @transactions.clear.push(0, amount, @balance)
+    @transaction = Transaction.new(0, amount, @balance)
   end
 end
