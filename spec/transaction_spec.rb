@@ -1,10 +1,11 @@
 require 'transaction'
 
 describe Transaction do
-  subject { described_class.new(100, 0, 100) }
+  let(:time) { double :time }
+  subject { described_class.new(100, 0, 100, time) }
 
   it 'should store the date' do
-    expect(subject.date).to eq Time.now.strftime('%d/%m/%Y').to_s
+    expect(subject.date).to eq time
   end
 
   it 'should store deposit' do
