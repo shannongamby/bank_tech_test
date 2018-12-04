@@ -2,7 +2,7 @@ require 'transaction'
 
 describe Transaction do
   let(:time) { double :time }
-  subject { described_class.new(100, 0, 100, time) }
+  subject { described_class.new(100, '', 100, time) }
 
   it 'should store the date' do
     expect(subject.date).to eq time
@@ -13,7 +13,7 @@ describe Transaction do
   end
 
   it 'should store withdrawal' do
-    expect(subject.debit).to eq 0
+    expect(subject.debit).to eq ''
   end
 
   it 'should store balance' do
