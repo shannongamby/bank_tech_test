@@ -13,50 +13,50 @@ describe Account do
 
   context 'depositing money' do
     it 'should add a specified amount to the balance' do
-      allow(transaction_history).to receive(:store)
+      allow(transaction_history).to receive(:add_transaction)
       subject.deposit(100)
       expect(subject.balance).to eq 100
     end
-    it "should return a message telling the client deposit was successful" do
-      allow(transaction_history).to receive(:store)
-      expect(subject.deposit(100)).to eq "£100 has been deposited."
+    it 'should return a message telling the client deposit was successful' do
+      allow(transaction_history).to receive(:add_transaction)
+      expect(subject.deposit(100)).to eq '£100 has been deposited.'
     end
   end
 
   context 'withdrawing money' do
     it 'should remove a specified amount from the balance' do
-      allow(transaction_history).to receive(:store)
+      allow(transaction_history).to receive(:add_transaction)
       subject.deposit(100)
       subject.withdraw(100)
       expect(subject.balance).to eq 0
     end
 
     it 'should not withdraw an amount if it is larger than the balance' do
-      allow(transaction_history).to receive(:store)
+      allow(transaction_history).to receive(:add_transaction)
       expect { subject.withdraw(100) }.to raise_error 'Not enough money in account!'
     end
 
-    it "should return a message telling the client withdraw was successful" do
-      allow(transaction_history).to receive(:store)
+    it 'should return a message telling the client withdraw was successful' do
+      allow(transaction_history).to receive(:add_transaction)
       subject.deposit(100)
-      expect(subject.withdraw(100)).to eq "£100 has been withdrawn."
+      expect(subject.withdraw(100)).to eq '£100 has been withdrawn.'
     end
   end
 
   context 'keeping track of transactions' do
-    it 'when #deposit is called transaction_history should receive #store' do
+    it 'when #deposit is called transaction_history should receive #create_transaction' do
       transaction_history = spy('transaction_history')
       subject = Account.new(statement, transaction_history)
       subject.deposit(100)
-      expect(transaction_history).to have_received(:store)
+      expect(transaction_history).to have_received(:add_transaction)
     end
 
-    it 'when #withdraw is called transaction_history should receive #store' do
+    it 'when #withdraw is called transaction_history should receive #create_transaction' do
       transaction_history = spy('transaction_history')
       subject = Account.new(statement, transaction_history)
       subject.deposit(100)
       subject.withdraw(100)
-      expect(transaction_history).to have_received(:store).twice
+      expect(transaction_history).to have_received(:add_transaction).twice
     end
   end
 

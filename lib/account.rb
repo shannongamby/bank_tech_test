@@ -15,7 +15,7 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @transaction_history.store(Transaction.new(amount, 0, @balance))
+    @transaction_history.add_transaction([amount, 0, @balance])
     "£#{amount} has been deposited."
   end
 
@@ -23,7 +23,7 @@ class Account
     raise 'Not enough money in account!' if amount > @balance
 
     @balance -= amount
-    @transaction_history.store(Transaction.new(0, amount, @balance))
+    @transaction_history.add_transaction([0, amount, @balance])
     "£#{amount} has been withdrawn."
   end
 

@@ -5,6 +5,14 @@ class TransactionHistory
     @transactions = []
   end
 
+  def add_transaction(transaction)
+    store(create_transaction(transaction))
+  end
+
+  def create_transaction(transaction)
+    Transaction.new(transaction[0], transaction[1], transaction[2])
+  end
+
   def store(transaction)
     @transactions << transaction
   end
