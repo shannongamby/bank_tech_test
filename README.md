@@ -2,7 +2,8 @@
 [![Build Status](https://travis-ci.com/shannongamby/bank_tech_test.svg?branch=master)](https://travis-ci.com/shannongamby/bank_tech_test)
 [![Coverage Status](https://coveralls.io/repos/github/shannongamby/bank_tech_test/badge.svg?branch=master&service=github)](https://coveralls.io/github/shannongamby/bank_tech_test?branch=master&service=github)
 
-When completing this tech test I focussed on implementing the principles of OOD and TDD.
+When completing this tech test I focussed on implementing the principles of OOD and TDD. I wanted to encapsulate each class and adhere to the SRP so that my code is easy to read and extend.
+
 ## Set Up
 - Fork and clone this repo
 - Run the command `bundle` to install dependencies
