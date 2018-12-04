@@ -24,6 +24,25 @@ As a client
 So that I can see how much money I have
 I want to be able to print my bank statement
 ```
+## How to use
+* Open `irb` and run `require './lib/account.rb'` 
+* Then you can interact with the program by following the notes below:
+```
+account = Account.new
+=> creates a new bank account instance
+
+account.deposit(100)
+=> Adds £100 to your balance
+
+account.withdraw(10)
+=> Removes £10 from your balance
+
+account.print_statement
+=> Prints your bank statement
+=> Date || Credit || Debit || Balance
+   3/12/18 || 0 || 10 || 90
+   3/12/18 || 100 || 0 || 100
+```
 
 ## Specification
 
@@ -33,18 +52,3 @@ I want to be able to print my bank statement
 * Deposits, withdrawal.
 * Account statement (date, amount, balance) printing.
 * Data can be kept in memory (it doesn't need to be stored to a database or anything).
-
-### Acceptance criteria
-
-**Given** a client makes a deposit of 1000 on 10-01-2012  
-**And** a deposit of 2000 on 13-01-2012  
-**And** a withdrawal of 500 on 14-01-2012  
-**When** she prints her bank statement  
-**Then** she would see
-
-```
-date || credit || debit || balance
-14/01/2012 || || 500.00 || 2500.00
-13/01/2012 || 2000.00 || || 3000.00
-10/01/2012 || 1000.00 || || 1000.00
-```
