@@ -33,13 +33,12 @@ account = Account.new
 => creates a new bank account instance
 
 account.deposit(100)
-=> Adds £100 to your balance
+ => "£110 has been deposited."
 
 account.withdraw(10)
-=> Removes £10 from your balance
+ => "£10 has been withdrawn."
 
 account.print_statement
-=> Prints your bank statement
 => Date || Credit || Debit || Balance
    3/12/18 || 0 || 10 || 90
    3/12/18 || 100 || 0 || 100
