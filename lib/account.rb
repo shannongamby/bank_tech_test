@@ -16,6 +16,7 @@ class Account
   def deposit(amount)
     @balance += amount
     @transaction_history.store(Transaction.new(amount, 0, @balance))
+    "£#{amount} has been deposited."
   end
 
   def withdraw(amount)
@@ -23,6 +24,7 @@ class Account
 
     @balance -= amount
     @transaction_history.store(Transaction.new(0, amount, @balance))
+    "£#{amount} has been withdrawn."
   end
 
   def print_statement

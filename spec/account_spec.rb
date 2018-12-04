@@ -17,6 +17,10 @@ describe Account do
       subject.deposit(100)
       expect(subject.balance).to eq 100
     end
+    it "should return a message telling the client deposit was successful" do
+      allow(transaction_history).to receive(:store)
+      expect(subject.deposit(100)).to eq "£100 has been deposited."
+    end
   end
 
   context 'withdrawing money' do
@@ -30,6 +34,12 @@ describe Account do
     it 'should not withdraw an amount if it is larger than the balance' do
       allow(transaction_history).to receive(:store)
       expect { subject.withdraw(100) }.to raise_error 'Not enough money in account!'
+    end
+
+    it "should return a message telling the client withdraw was successful" do
+      allow(transaction_history).to receive(:store)
+      subject.deposit(100)
+      expect(subject.withdraw(100)).to eq "£100 has been withdrawn."
     end
   end
 
