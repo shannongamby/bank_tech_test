@@ -39,9 +39,9 @@ account.withdraw(10)
  => "£10 has been withdrawn."
 
 account.print_statement
-=> Date || Credit || Debit || Balance
-   3/12/18 ||  || 10 || 90
-   3/12/18 || 100 ||  || 100
+=> date || credit || debit || balance
+   3/12/18 ||  || 10.00 || 90.00
+   3/12/18 || 100.00 ||  || 100.00
 ```
 
 ## Specification
