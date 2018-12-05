@@ -3,7 +3,9 @@ class Statement
   def print(transactions)
     puts 'Date || Credit || Debit || Balance'
     transactions.reverse_each do |transaction|
-      puts "#{transaction.date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}"
+      transaction.credit == 0 ? credit = "" : credit = "#{transaction.credit}.00"
+      transaction.debit == 0 ? debit = "" : debit = "#{transaction.debit}.00"
+      puts "#{transaction.date} || #{credit} || #{debit} || #{transaction.balance}.00"
     end
   end
 end
