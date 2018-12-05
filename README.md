@@ -40,8 +40,8 @@ account.withdraw(10)
 
 account.print_statement
 => date || credit || debit || balance
-   3/12/18 ||  || 10.00 || 90.00
-   3/12/18 || 100.00 ||  || 100.00
+   3/12/18 || || 10.00 || 90.00
+   3/12/18 || 100.00 || || 100.00
 ```
 
 ## Specification
