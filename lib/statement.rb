@@ -1,7 +1,7 @@
 # This class is responsible for printing bank statements
 class Statement
   def print(transactions)
-    puts 'Date || Credit || Debit || Balance'
+    puts 'date || credit || debit || balance'
     transactions.reverse_each do |transaction|
       transaction.credit == 0 ? credit = "" : credit = "#{transaction.credit}.00"
       transaction.debit == 0 ? debit = "" : debit = "#{transaction.debit}.00"
